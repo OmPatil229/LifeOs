@@ -5,7 +5,12 @@ import { Plus, Trash2, Clock, Flame, Lightbulb, Target, X, Check, RotateCw } fro
 import { useLifeStore, Habit } from '../../../store/useLifeStore';
 
 export default function HabitsPage() {
-  const { habits, fetchHabits, createHabit, deleteHabit, goals, fetchGoals } = useLifeStore();
+  const habits = useLifeStore(state => state.habits);
+  const fetchHabits = useLifeStore(state => state.fetchHabits);
+  const createHabit = useLifeStore(state => state.createHabit);
+  const deleteHabit = useLifeStore(state => state.deleteHabit);
+  const goals = useLifeStore(state => state.goals);
+  const fetchGoals = useLifeStore(state => state.fetchGoals);
   const [isAdding, setIsAdding] = useState(false);
   
   // Form State

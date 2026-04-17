@@ -6,7 +6,13 @@ import { useLifeStore, TimeLayer } from '../../../store/useLifeStore';
 import { Tooltip } from '../../../components/ui/Tooltip';
 
 export default function DashboardPage() {
-  const { activeTimeLayer, setActiveTimeLayer, fetchCard, selectedDate, fetchInsights, fetchActiveSession, fetchCarryForwardStats } = useLifeStore();
+  const activeTimeLayer = useLifeStore(state => state.activeTimeLayer);
+  const setActiveTimeLayer = useLifeStore(state => state.setActiveTimeLayer);
+  const fetchCard = useLifeStore(state => state.fetchCard);
+  const selectedDate = useLifeStore(state => state.selectedDate);
+  const fetchInsights = useLifeStore(state => state.fetchInsights);
+  const fetchActiveSession = useLifeStore(state => state.fetchActiveSession);
+  const fetchCarryForwardStats = useLifeStore(state => state.fetchCarryForwardStats);
 
   useEffect(() => {
     // Initial data fetch for all layers

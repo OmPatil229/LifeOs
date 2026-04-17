@@ -10,7 +10,8 @@ import { GlowCard } from '../../../components/ui/GlowCard';
  * Analysis Page — High-precision behavioral tracking and trajectory modeling.
  */
 export default function AnalysisPage() {
-  const { insights, fetchInsights } = useLifeStore();
+  const insights = useLifeStore(state => state.insights);
+  const fetchInsights = useLifeStore(state => state.fetchInsights);
 
   useEffect(() => {
     fetchInsights();
