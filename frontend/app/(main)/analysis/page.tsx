@@ -74,11 +74,11 @@ export default function AnalysisPage() {
           </GlowCard>
         </Tooltip>
  
-        <GlowCard style={{ background: 'var(--white)' }}>
+        <GlowCard style={{ background: 'var(--accent)' }}>
           <div style={{ padding: 48, textAlign: 'center' }}>
-            <div style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'rgba(0,0,0,0.5)', marginBottom: 24 }}>HABIT SUCCESS</div>
-            <div className="mono" style={{ fontSize: 72, fontWeight: 700, margin: '12px 0', color: 'black', fontFamily: 'var(--font-serif)' }}>{insights.consistencyRate || 0}<span style={{ fontSize: 24, marginLeft: 4, fontFamily: 'var(--font-sans)' }}>%</span></div>
-            <div style={{ color: 'rgba(0,0,0,0.4)', fontSize: '12px', fontWeight: 800, letterSpacing: '0.1em' }}>STREAK PROGRESS</div>
+            <div style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'rgba(0,0,0,0.5)', marginBottom: 24 }}>HABIT SUCCESS</div>
+            <div className="mono" style={{ fontSize: 72, fontWeight: 700, margin: '12px 0', color: 'black', fontFamily: 'var(--font-serif)' }}>{insights.consistencyRate || 0}<span style={{ fontSize: 24, marginLeft: 4, fontFamily: 'var(--font-serif)' }}>%</span></div>
+            <div style={{ color: 'rgba(0,0,0,0.4)', fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em' }}>STREAK PROGRESS</div>
           </div>
         </GlowCard>
  

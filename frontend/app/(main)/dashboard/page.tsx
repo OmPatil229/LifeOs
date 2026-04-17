@@ -40,22 +40,24 @@ export default function DashboardPage() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', background: 'rgba(255,255,255,0.03)', padding: '6px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ display: 'flex', background: 'rgba(255,255,255,0.03)', padding: '6px', borderRadius: '12px', border: '1px solid var(--border)' }}>
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTimeLayer(tab.id)}
               style={{
-                padding: '12px 28px',
-                borderRadius: '10px',
-                fontSize: '13px',
+                padding: '12px 24px',
+                borderRadius: '8px',
+                fontSize: '12px',
                 fontWeight: 700,
                 border: 'none',
                 cursor: 'pointer',
-                background: activeTimeLayer === tab.id ? 'var(--white)' : 'transparent',
+                background: activeTimeLayer === tab.id ? 'var(--accent)' : 'transparent',
                 color: activeTimeLayer === tab.id ? 'var(--black)' : 'var(--gray-text)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                letterSpacing: '0.02em'
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                fontFamily: 'var(--font-serif)'
               }}
             >
               {tab.label}

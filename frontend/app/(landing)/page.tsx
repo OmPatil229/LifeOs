@@ -649,12 +649,25 @@ function WaitlistSection() {
         Secure your spot today and get early access to a more organized you.
       </p>
 
-      <form className="waitlist-form reveal" onSubmit={handleSubmit} style={{ background: 'rgba(255,255,255,0.03)', padding: '8px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)' }}>
+      <form className="waitlist-form reveal" onSubmit={handleSubmit} style={{ 
+        background: 'rgba(255,255,255,0.02)', 
+        padding: '12px', 
+        borderRadius: '16px', 
+        border: '1px solid var(--border)',
+        maxWidth: '540px',
+        margin: '0 auto'
+      }}>
         <input
           type="email"
-          className="waitlist-input"
-          placeholder="email address"
-          style={{ background: 'transparent', border: 'none' }}
+          className="luxury-input"
+          placeholder="your email address"
+          style={{ 
+            flex: 1,
+            background: 'transparent', 
+            border: 'none',
+            fontSize: '16px',
+            paddingLeft: '24px'
+          }}
           value={email}
           onChange={(e) => { setEmail(e.target.value); if (status !== 'idle') setStatus('idle'); }}
           required
@@ -666,7 +679,7 @@ function WaitlistSection() {
           className={status === 'success' ? 'success' : ''}
           id="waitlist-submit-button"
         >
-          {status === 'loading' ? 'Saving...' : status === 'success' ? <><Check size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} /> You're In</> : 'Join waitlist'}
+          {status === 'loading' ? 'Saving...' : status === 'success' ? <><Check size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} /> Success</> : 'Join Waitlist'}
         </LuxuryButton>
       </form>
 
