@@ -34,11 +34,11 @@ const InsightBox = ({ text }: { text: string }) => {
 
 const SectionLabel = ({ icon: Icon, label, tooltip }: { icon?: any, label: string, tooltip?: string }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-    {Icon && <Icon size={20} color="var(--gray-700)" />}
-    <span style={{ fontSize: '15px', fontWeight: 800, color: 'var(--gray-500)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{label}</span>
+    {Icon && <Icon size={18} color="var(--gray-dim)" />}
+    <span style={{ fontSize: '12px', fontWeight: 800, color: 'var(--gray-text)', textTransform: 'lowercase', letterSpacing: '0.1em', fontFamily: 'var(--font-serif)' }}>{label}</span>
     {tooltip && (
       <Tooltip text={tooltip} position="right">
-        <span style={{ color: 'var(--gray-800)', cursor: 'help', fontSize: '13px', marginLeft: '4px' }}>ⓘ</span>
+        <span style={{ color: 'var(--gray-dim)', cursor: 'help', fontSize: '13px', marginLeft: '4px' }}>ⓘ</span>
       </Tooltip>
     )}
   </div>
@@ -389,14 +389,14 @@ export const DayCardContent = () => {
   return (
     <div className="card-content-area" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
       {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px' }}>
         <div>
-          <h2 style={{ fontSize: '28px', fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>Today</h2>
-          <span style={{ fontSize: '13px', color: 'var(--gray-500)', fontWeight: 600 }}>{format(new Date(selectedDate + 'T00:00:00'), 'EEEE, MMMM do, yyyy')}</span>
+          <h2 style={{ fontSize: '48px', fontWeight: 700, margin: 0, letterSpacing: '-0.04em', fontFamily: 'var(--font-serif)', lineHeight: 1 }}>today</h2>
+          <span style={{ fontSize: '15px', color: 'var(--gray-text)', fontWeight: 500, display: 'block', marginTop: '12px', lowercase: 'true' }}>{format(new Date(selectedDate + 'T00:00:00'), 'eeee, MMMM do, yyyy').toLowerCase()}</span>
         </div>
         <Tooltip text="Add a goal for today">
-          <button onClick={() => setIsAddingGoal(true)} style={{ padding: '10px 20px', border: '1px solid var(--border)', borderRadius: '10px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', transition: 'all 0.2s' }}>
-            <Plus size={18} /> <span style={{ fontSize: '13px', fontWeight: 700 }}>Add Goal</span>
+          <button onClick={() => setIsAddingGoal(true)} style={{ padding: '12px 24px', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }} className="luxury-border">
+            <Plus size={16} /> <span style={{ fontSize: '13px', fontWeight: 700, textTransform: 'lowercase', fontFamily: 'var(--font-serif)' }}>add goal</span>
           </button>
         </Tooltip>
       </div>
@@ -515,11 +515,11 @@ export const WeekCardContent = () => {
 
   return (
     <div className="card-content-area" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h2 style={{ fontSize: '28px', fontWeight: 800, margin: 0 }}>This Week</h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px' }}>
+        <h2 style={{ fontSize: '48px', fontWeight: 700, margin: 0, letterSpacing: '-0.04em', fontFamily: 'var(--font-serif)', lineHeight: 1 }}>this week</h2>
         <Tooltip text="Set a goal for this week">
-          <button onClick={() => setIsAddingGoal(true)} style={{ padding: '10px 20px', border: '1px solid var(--border)', borderRadius: '10px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)' }}>
-            <Plus size={18} /> <span style={{ fontSize: '13px', fontWeight: 700 }}>Add Goal</span>
+          <button onClick={() => setIsAddingGoal(true)} style={{ padding: '12px 24px', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }} className="luxury-border">
+            <Plus size={16} /> <span style={{ fontSize: '13px', fontWeight: 700, textTransform: 'lowercase', fontFamily: 'var(--font-serif)' }}>add goal</span>
           </button>
         </Tooltip>
       </div>
