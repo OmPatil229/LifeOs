@@ -39,22 +39,20 @@ export default function HabitsPage() {
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.5s ease-out', paddingBottom: '100px', maxWidth: '1200px', margin: '0 auto' }}>
-      
+    <div className="page-shell">
       {/* Header */}
-      <div style={{ marginBottom: '64px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-          <div>
-            <h1 style={{ fontSize: '40px', fontWeight: 900, letterSpacing: '-0.04em', margin: 0 }}>Routines</h1>
-            <p style={{ marginTop: '12px', color: 'var(--gray-500)', fontSize: '18px', fontWeight: 500 }}>Build consistent high-performance habits.</p>
-          </div>
-          <button 
-            onClick={() => setIsAdding(true)}
-            style={{ padding: '16px 32px', background: 'var(--white)', border: 'none', borderRadius: '12px', color: 'var(--black)', fontSize: '15px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.1em', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '12px', transition: 'all 0.3s ease' }}
-          >
-            <Plus size={20} /> Create Habit
-          </button>
+      <div style={{ marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid var(--border)', paddingBottom: '40px' }}>
+        <div>
+          <h1 className="mono" style={{ fontSize: '72px', fontWeight: 700, margin: 0, letterSpacing: '-0.06em', textTransform: 'lowercase', fontFamily: 'var(--font-serif)', lineHeight: 0.8 }}>routines</h1>
+          <p style={{ marginTop: '24px', color: 'var(--gray-text)', fontSize: '15px', fontWeight: 500, maxWidth: '400px', lineHeight: 1.6 }}>build consistent high-performance habits.</p>
         </div>
+        <button 
+          onClick={() => setIsAdding(true)}
+          className="luxury-border"
+          style={{ padding: '16px 32px', background: 'var(--white)', border: 'none', borderRadius: 'var(--radius-md)', color: 'var(--black)', fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '12px', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)', fontFamily: 'var(--font-serif)' }}
+        >
+          <Plus size={20} /> create habit
+        </button>
       </div>
 
       {/* Habits Grid */}

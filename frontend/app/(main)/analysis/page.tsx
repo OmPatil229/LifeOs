@@ -49,17 +49,16 @@ export default function AnalysisPage() {
   ];
 
   return (
-    <div className="content-max-width" style={{ animation: 'fadeIn 1s ease-out', padding: '60px 0' }}>
-      
+    <div className="page-shell">
       {/* Header */}
-      <div style={{ marginBottom: '100px', textAlign: 'center' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, letterSpacing: '0.2em', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', marginBottom: 20, color: 'var(--gray-text)' }}>
-          <Activity size={12} /> performance engine
+      <div style={{ marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid var(--border)', paddingBottom: '40px' }}>
+        <div>
+          <h1 className="mono" style={{ fontSize: '72px', fontWeight: 700, margin: 0, letterSpacing: '-0.06em', textTransform: 'lowercase', fontFamily: 'var(--font-serif)', lineHeight: 0.8 }}>trajectory</h1>
+          <p style={{ marginTop: '24px', color: 'var(--gray-text)', fontSize: '15px', fontWeight: 500, maxWidth: '400px', lineHeight: 1.6 }}>biometric patterns and behavioral modeling.</p>
         </div>
-        <h1 style={{ fontSize: '80px', fontWeight: 700, letterSpacing: '-0.05em', margin: 0, fontFamily: 'var(--font-serif)', textTransform: 'lowercase' }}>
-          behavioral analysis
-        </h1>
-        <p style={{ marginTop: '20px', color: 'var(--gray-text)', fontSize: '18px', fontWeight: 400, maxWidth: '600px', margin: '20px auto 0' }}>A data-driven reflection of your daily operations, refined for clarity.</p>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <div className="luxury-border" style={{ padding: '8px 16px', borderRadius: '4px', background: 'var(--surface-input)', border: '1px solid var(--border)', fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--gray-text)', fontFamily: 'var(--font-serif)' }}>Live Analysis</div>
+        </div>
       </div>
 
       {/* Summary Metrics */}

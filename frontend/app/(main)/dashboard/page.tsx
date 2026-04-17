@@ -35,33 +35,29 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%', animation: 'fadeIn 1s ease-out' }}>
-      <div style={{ padding: '40px 0', marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+    <div className="page-shell" style={{ animation: 'fadeIn 1s ease-out' }}>
+      <div style={{ marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid var(--border)', paddingBottom: '40px' }}>
         <div>
-          <h1 style={{ fontSize: '64px', fontWeight: 700, letterSpacing: '-0.04em', fontFamily: 'var(--font-serif)', textTransform: 'lowercase' }}>
-            {tabs.find(t => t.id === activeTimeLayer)?.label}
-          </h1>
-          <p style={{ marginTop: '8px', color: 'var(--gray-text)', fontSize: '15px', fontWeight: 500, letterSpacing: '0.02em' }}>
-            {tabs.find(t => t.id === activeTimeLayer)?.tip}
-          </p>
+          <h1 className="mono" style={{ fontSize: '72px', fontWeight: 700, margin: 0, letterSpacing: '-0.06em', textTransform: 'lowercase', fontFamily: 'var(--font-serif)', lineHeight: 0.8 }}>{tabs.find(t => t.id === activeTimeLayer)?.label}</h1>
+          <p style={{ marginTop: '24px', color: 'var(--gray-text)', fontSize: '15px', fontWeight: 500, maxWidth: '400px', lineHeight: 1.6 }}>{tabs.find(t => t.id === activeTimeLayer)?.tip}</p>
         </div>
 
-        <div style={{ display: 'flex', background: 'rgba(255,255,255,0.03)', padding: '6px', borderRadius: '12px', border: '1px solid var(--border)' }}>
+        <div style={{ display: 'flex', background: 'var(--surface-input)', padding: '6px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTimeLayer(tab.id)}
               style={{
                 padding: '12px 24px',
-                borderRadius: '8px',
-                fontSize: '12px',
-                fontWeight: 700,
+                borderRadius: '4px',
+                fontSize: '11px',
+                fontWeight: 800,
                 border: 'none',
                 cursor: 'pointer',
                 background: activeTimeLayer === tab.id ? 'var(--accent)' : 'transparent',
                 color: activeTimeLayer === tab.id ? 'var(--black)' : 'var(--gray-text)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                letterSpacing: '0.05em',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 fontFamily: 'var(--font-serif)'
               }}
@@ -70,9 +66,8 @@ export default function DashboardPage() {
             </button>
           ))}
         </div>
-      </div>
 
-      <div style={{ flex: 1, padding: '0 24px 24px' }}>
+      <div style={{ flex: 1, padding: '0 40px 40px' }}>
         <TimeLayerStack />
       </div>
     </div>

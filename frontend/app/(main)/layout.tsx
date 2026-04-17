@@ -65,7 +65,7 @@ export default function AppLayout({
       <main className="main-content">
         <TopBar />
         <div className="content-area">
-          <div className="content-max-width">
+          <div className="content-max-width luxury-container">
             {children}
           </div>
         </div>
