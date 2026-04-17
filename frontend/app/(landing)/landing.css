@@ -6,21 +6,22 @@
 
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
-  --landing-bg: #020206;
-  --landing-surface: #0a0a12;
-  --landing-surface-2: #12121f;
-  --landing-surface-3: #1a1a2e;
-  --landing-border: rgba(255, 255, 255, 0.06);
-  --landing-border-hover: rgba(255, 255, 255, 0.12);
-  --landing-text: #f0f0f5;
-  --landing-text-muted: #8888a4;
-  --landing-text-dim: #555570;
-  --accent-primary: #6c5ce7;
-  --accent-secondary: #00cec9;
-  --accent-warm: #fd79a8;
-  --accent-gradient: linear-gradient(135deg, #6c5ce7 0%, #00cec9 50%, #fd79a8 100%);
-  --accent-glow: 0 0 40px rgba(108, 92, 231, 0.3), 0 0 80px rgba(0, 206, 201, 0.15);
-  --font-landing: 'Inter', system-ui, -apple-system, sans-serif;
+  --landing-bg: #000000;
+  --landing-surface: #050505;
+  --landing-surface-2: #0A0A0A;
+  --landing-surface-3: #111111;
+  --landing-border: rgba(255, 255, 255, 0.04);
+  --landing-border-hover: rgba(255, 255, 255, 0.1);
+  --landing-text: #FFFFFF;
+  --landing-text-muted: #888888;
+  --landing-text-dim: #333333;
+  --accent-primary: #FFFFFF;
+  --accent-secondary: #FFFFFF;
+  --accent-warm: #FFFFFF;
+  --accent-gradient: linear-gradient(135deg, #FFFFFF 0%, #888888 100%);
+  --accent-glow: 0 0 40px rgba(255, 255, 255, 0.05);
+  --font-landing: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -86,10 +87,8 @@
 }
 
 @keyframes orbFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(40px, -60px) scale(1.1); }
-  50% { transform: translate(-30px, 40px) scale(0.95); }
-  75% { transform: translate(60px, 20px) scale(1.05); }
+  0%, 100% { transform: translate(0, 0); opacity: 0.1; }
+  50% { transform: translate(20px, -20px); opacity: 0.05; }
 }
 
 /* ── Grid Overlay Pattern ──────────────────────────────────── */
@@ -251,13 +250,20 @@
 }
 
 .hero-title {
-  font-size: clamp(48px, 8vw, 96px);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin-bottom: 24px;
-  max-width: 900px;
-  animation: fadeSlideUp 0.8s ease-out 0.1s backwards;
+  font-family: var(--font-serif);
+  font-size: clamp(64px, 12vw, 140px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  margin-bottom: 40px;
+  max-width: 1000px;
+  text-transform: lowercase;
+  animation: cinematicFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cinematicFadeIn {
+  from { opacity: 0; filter: blur(20px); transform: scale(1.1); }
+  to { opacity: 1; filter: blur(0); transform: scale(1); }
 }
 
 .hero-title-gradient {
@@ -450,8 +456,8 @@
 .landing-section {
   position: relative;
   z-index: 1;
-  padding: 120px 24px;
-  max-width: 1200px;
+  padding: 240px 24px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -474,12 +480,14 @@
 }
 
 .section-title {
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 20px;
-  max-width: 700px;
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 32px;
+  max-width: 800px;
+  text-transform: lowercase;
 }
 
 .section-subtitle {

@@ -48,12 +48,17 @@ export default function AnalysisPage() {
   ];
 
   return (
-    <div className="content-max-width" style={{ animation: 'fadeIn 0.5s ease-out' }}>
+    <div className="content-max-width" style={{ animation: 'fadeIn 1s ease-out', padding: '60px 0' }}>
       
       {/* Header */}
-      <div style={{ marginBottom: '64px' }}>
-        <h1 style={{ fontSize: '40px', fontWeight: 900, letterSpacing: '-0.04em', margin: 0 }}>Behavioral Analysis</h1>
-        <p style={{ marginTop: '12px', color: 'var(--gray-500)', fontSize: '18px', fontWeight: 500 }}>A data-driven reflection of your daily operations.</p>
+      <div style={{ marginBottom: '100px', textAlign: 'center' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, letterSpacing: '0.2em', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', marginBottom: 20, color: 'var(--gray-text)' }}>
+          <Activity size={12} /> performance engine
+        </div>
+        <h1 style={{ fontSize: '80px', fontWeight: 700, letterSpacing: '-0.05em', margin: 0, fontFamily: 'var(--font-serif)', textTransform: 'lowercase' }}>
+          behavioral analysis
+        </h1>
+        <p style={{ marginTop: '20px', color: 'var(--gray-text)', fontSize: '18px', fontWeight: 400, maxWidth: '600px', margin: '20px auto 0' }}>A data-driven reflection of your daily operations, refined for clarity.</p>
       </div>
 
       {/* Summary Metrics */}
@@ -61,37 +66,28 @@ export default function AnalysisPage() {
         
         <Tooltip text="Estimated time saved via focused work sessions." position="bottom">
           <GlowCard style={{ background: 'var(--surface-1)' }}>
-            <div style={{ padding: 32 }}>
-               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', color: 'var(--gray-700)' }}>
-                 <Clock size={24} />
-                 <span style={{ fontSize: '15px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Time Saved</span>
-               </div>
-               <div className="mono" style={{ fontSize: 48, fontWeight: 900, margin: '12px 0', color: 'white' }}>{insights.capacityGain || 0}<span style={{ fontSize: 24, marginLeft: 4 }}>H</span></div>
-               <div style={{ color: 'var(--gray-700)', fontSize: '14px', fontWeight: 800 }}>TOTAL / 30 DAYS</div>
+            <div style={{ padding: 48, textAlign: 'center' }}>
+               <div style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--gray-text)', marginBottom: 24 }}>TIME SAVED</div>
+               <div className="mono" style={{ fontSize: 72, fontWeight: 700, margin: '12px 0', color: 'white', fontFamily: 'var(--font-serif)' }}>{insights.capacityGain || 0}<span style={{ fontSize: 24, marginLeft: 4, fontFamily: 'var(--font-sans)' }}>H</span></div>
+               <div style={{ color: 'var(--gray-dim)', fontSize: '12px', fontWeight: 800, letterSpacing: '0.1em' }}>TOTAL / 30 DAYS</div>
             </div>
           </GlowCard>
         </Tooltip>
  
-        <GlowCard style={{ background: 'var(--surface-2)' }}>
-          <div style={{ padding: 32 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', color: 'var(--white)' }}>
-              <TrendingUp size={24} />
-              <span style={{ fontSize: '15px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Habit Success</span>
-            </div>
-            <div className="mono" style={{ fontSize: 48, fontWeight: 900, margin: '12px 0' }}>{insights.consistencyRate || 0}<span style={{ fontSize: 24, marginLeft: 4 }}>%</span></div>
-            <div style={{ color: 'var(--white)', fontSize: '14px', fontWeight: 800 }}>STREAK PROGRESS</div>
+        <GlowCard style={{ background: 'var(--white)' }}>
+          <div style={{ padding: 48, textAlign: 'center' }}>
+            <div style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'rgba(0,0,0,0.5)', marginBottom: 24 }}>HABIT SUCCESS</div>
+            <div className="mono" style={{ fontSize: 72, fontWeight: 700, margin: '12px 0', color: 'black', fontFamily: 'var(--font-serif)' }}>{insights.consistencyRate || 0}<span style={{ fontSize: 24, marginLeft: 4, fontFamily: 'var(--font-sans)' }}>%</span></div>
+            <div style={{ color: 'rgba(0,0,0,0.4)', fontSize: '12px', fontWeight: 800, letterSpacing: '0.1em' }}>STREAK PROGRESS</div>
           </div>
         </GlowCard>
  
         <Tooltip text="How fast you are finishing your daily goals." position="bottom">
           <GlowCard style={{ background: 'var(--surface-1)' }}>
-            <div style={{ padding: 32 }}>
-               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', color: 'var(--gray-700)' }}>
-                 <Zap size={24} />
-                 <span style={{ fontSize: '15px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Goal Speed</span>
-               </div>
-               <div className="mono" style={{ fontSize: 48, fontWeight: 900, margin: '12px 0' }}>{insights.efficiencyFactor || '1.0'}<span style={{ fontSize: 24, marginLeft: 4 }}>X</span></div>
-               <div style={{ color: 'var(--gray-700)', fontSize: '14px', fontWeight: 800 }}>USER ADVANTAGE</div>
+            <div style={{ padding: 48, textAlign: 'center' }}>
+               <div style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--gray-text)', marginBottom: 24 }}>GOAL SPEED</div>
+               <div className="mono" style={{ fontSize: 72, fontWeight: 700, margin: '12px 0', color: 'white', fontFamily: 'var(--font-serif)' }}>{insights.efficiencyFactor || '1.0'}<span style={{ fontSize: 24, marginLeft: 4, fontFamily: 'var(--font-sans)' }}>X</span></div>
+               <div style={{ color: 'var(--gray-dim)', fontSize: '12px', fontWeight: 800, letterSpacing: '0.1em' }}>USER ADVANTAGE</div>
             </div>
           </GlowCard>
         </Tooltip>

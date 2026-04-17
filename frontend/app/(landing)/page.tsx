@@ -7,10 +7,13 @@ import { useAuthStore } from '@/store/useAuthStore';
 import './landing.css';
 
 import {
-  Target, Clock, PenTool, BarChart3, Zap, Brain,
   ArrowRight, ChevronDown, Sparkles, Shield,
-  Layers, CheckCircle, Check
+  CheckCircle, Check, Play, Zap,
+  Layers, Target, Clock, PenTool, BarChart3, Brain
 } from 'lucide-react';
+import { ScrollRevealText } from '../../components/ui/ScrollRevealText';
+import { LuxuryButton } from '../../components/ui/LuxuryButton';
+import { GlowCard } from '../../components/ui/GlowCard';
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -352,100 +355,64 @@ function HeroSection() {
   const { token } = useAuthStore();
   const router = useRouter();
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="hero-section" id="hero">
       <div ref={heroRef} style={{ ...heroStyle, willChange: 'transform, opacity, filter' }} className="hero-inner">
         <div className="hero-badge">
           <span className="hero-badge-dot" />
-          {token ? 'Welcome Back to LifeOS' : 'Now Accepting Early Access Signups'}
+          {token ? 'welcome back' : 'membership open'}
         </div>
 
         <h1 className="hero-title">
-          Your Entire Life, <br /><span className="hero-title-gradient">Finally in Flow.</span>
+          life, <br />
+          <span className="hero-title-gradient">in flow.</span>
         </h1>
 
-        <p className="hero-subtitle">
-          The all-in-one space to organize your goals, focus your days, 
-          and find your calm in the chaos. Beautifully designed for real living.
-        </p>
+        <div style={{ maxWidth: 800, margin: '0 auto 60px' }}>
+          <ScrollRevealText 
+            text="The all-in-one space to organize your goals, focus your days, and find your calm in the chaos. Beautifully designed for real living."
+            className="hero-subtitle"
+            style={{ margin: 0, animation: 'none' }}
+          />
+        </div>
 
-        <div className="hero-cta-group">
+        <div className="hero-cta-group" style={{ justifyContent: 'center' }}>
           {token ? (
-            <button
-              className="hero-cta-primary"
+            <LuxuryButton
               onClick={() => router.push('/dashboard')}
               id="hero-go-dashboard"
             >
               Enter Dashboard <ArrowRight size={18} />
-            </button>
+            </LuxuryButton>
           ) : (
-            <button
-              className="hero-cta-primary"
+            <LuxuryButton
               onClick={() => router.push('/register')}
               id="hero-join-waitlist"
             >
-              Start Your Journey <ArrowRight size={18} />
-            </button>
+              Get Early Access <ArrowRight size={18} />
+            </LuxuryButton>
           )}
           
-          {!token && (
-            <button
-              className="hero-cta-secondary"
-              onClick={() => scrollTo('features')}
-              id="hero-explore-features"
-            >
-              See How it Works <ChevronDown size={18} />
-            </button>
-          )}
+          <LuxuryButton
+            variant="outline"
+            onClick={() => {
+              const el = document.getElementById('features');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Explore <ChevronDown size={18} />
+          </LuxuryButton>
         </div>
 
-
-        {/* Dashboard Mockup Preview */}
-        <div className="hero-visual">
-          <div className="hero-mockup">
-            <div className="mockup-topbar">
-              <div className="mockup-dot" />
-              <div className="mockup-dot" />
-              <div className="mockup-dot" />
-            </div>
-            <div className="mockup-body">
-              <div className="mockup-card">
-                <div className="mockup-card-label">Goal Alignment</div>
-                <div className="mockup-card-value" style={{ color: '#6c5ce7' }}>94<span style={{ fontSize: 18 }}>%</span></div>
-                <div className="mockup-card-bar">
-                  <div className="mockup-card-bar-fill" style={{ width: '94%' }} />
-                </div>
+        <div className="hero-visual" style={{ opacity: 0.8 }}>
+           <div style={{ padding: '40px', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '24px', background: 'rgba(255,255,255,0.01)' }}>
+              <div style={{ display: 'flex', gap: 20, alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: 120, height: 4, background: 'rgba(255,255,255,0.1)', borderRadius: 2 }} />
+                <Play size={24} style={{ fill: 'white' }} />
+                <div style={{ width: 320, height: 4, background: 'rgba(255,255,255,0.05)', borderRadius: 2 }} />
               </div>
-              <div className="mockup-card">
-                <div className="mockup-card-label">Focus Hours Today</div>
-                <div className="mockup-card-value" style={{ color: '#00cec9' }}>6.4<span style={{ fontSize: 18 }}>h</span></div>
-                <div className="mockup-card-bar">
-                  <div className="mockup-card-bar-fill" style={{ width: '80%' }} />
-                </div>
-              </div>
-              <div className="mockup-card">
-                <div className="mockup-card-label">Weekly Streak</div>
-                <div className="mockup-card-value" style={{ color: '#fd79a8' }}>12<span style={{ fontSize: 18 }}>d</span></div>
-                <div className="mockup-card-bar">
-                  <div className="mockup-card-bar-fill" style={{ width: '100%' }} />
-                </div>
-              </div>
-            </div>
-          </div>
+           </div>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="scroll-indicator">
-        <div className="scroll-mouse">
-          <div className="scroll-wheel" />
-        </div>
-        <span className="scroll-text">Scroll to explore</span>
       </div>
     </section>
   );
@@ -457,14 +424,15 @@ function HeroSection() {
 function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   const Icon = feature.icon;
   return (
-    <div className={`feature-card reveal reveal-delay-${index + 1}`}>
-      <div className="feature-icon">
-        <div className={`feature-icon-bg ${feature.bgClass}`} />
-        <Icon className={feature.accentClass} />
+    <GlowCard className="feature-card reveal" style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.05)' }}>
+      <div style={{ padding: '48px' }}>
+        <div className="feature-icon" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '14px' }}>
+          <Icon size={24} style={{ color: 'white' }} />
+        </div>
+        <h3 className="feature-title" style={{ fontFamily: 'var(--font-serif)', fontSize: '24px', letterSpacing: '-0.02em' }}>{feature.title}</h3>
+        <p className="feature-desc" style={{ fontSize: '15px', opacity: 0.6 }}>{feature.description}</p>
       </div>
-      <h3 className="feature-title">{feature.title}</h3>
-      <p className="feature-desc">{feature.description}</p>
-    </div>
+    </GlowCard>
   );
 }
 
@@ -526,25 +494,27 @@ function FeaturesSection() {
 function HowItWorksSection() {
   return (
     <ScrollSection className="landing-section scroll-section" id="how-it-works">
-      <div style={{ textAlign: 'center', marginBottom: 80 }}>
-        <div className="section-label reveal" style={{ justifyContent: 'center' }}>
+      <div style={{ textAlign: 'center', marginBottom: 160 }}>
+        <div className="section-label" style={{ justifyContent: 'center' }}>
           <span className="section-label-line" />
-          PROCESS
+          methodology
         </div>
-        <h2 className="section-title reveal" style={{ margin: '0 auto 20px', textAlign: 'center' }}>
-          Three steps to <span className="hero-title-gradient">mastery</span>
+        <h2 className="section-title" style={{ margin: '0 auto 40px', textAlign: 'center' }}>
+          the path to <br /><span className="hero-title-gradient">synchrony.</span>
         </h2>
-        <p className="section-subtitle reveal" style={{ margin: '0 auto', textAlign: 'center' }}>
-          LifeOS turns chaos into clarity through a simple, adaptive loop.
-        </p>
+        <ScrollRevealText 
+          text="LifeOS turns chaos into clarity through a simple, adaptive loop designed for peak human performance."
+          className="section-subtitle"
+          style={{ margin: '0 auto', textAlign: 'center' }}
+        />
       </div>
 
       <div className="steps-container">
         {STEPS.map((step, i) => (
-          <div key={step.number} className={`step-card reveal reveal-delay-${i + 1}`}>
-            <div className="step-number">{step.number}</div>
-            <h3 className="step-title">{step.title}</h3>
-            <p className="step-desc">{step.description}</p>
+          <div key={step.number} className="step-card reveal">
+            <div className="step-number" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'transparent', fontFamily: 'var(--font-serif)' }}>{step.number}</div>
+            <h3 className="step-title" style={{ fontFamily: 'var(--font-serif)', fontSize: '24px' }}>{step.title}</h3>
+            <p className="step-desc" style={{ opacity: 0.6 }}>{step.description}</p>
           </div>
         ))}
       </div>
@@ -679,26 +649,25 @@ function WaitlistSection() {
         Secure your spot today and get early access to a more organized you.
       </p>
 
-      <form className="waitlist-form reveal" onSubmit={handleSubmit}>
+      <form className="waitlist-form reveal" onSubmit={handleSubmit} style={{ background: 'rgba(255,255,255,0.03)', padding: '8px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)' }}>
         <input
           type="email"
           className="waitlist-input"
-          placeholder="Enter your email address"
+          placeholder="email address"
+          style={{ background: 'transparent', border: 'none' }}
           value={email}
           onChange={(e) => { setEmail(e.target.value); if (status !== 'idle') setStatus('idle'); }}
           required
           disabled={status === 'loading'}
           id="waitlist-email-input"
-          aria-label="Email address"
         />
-        <button
-          type="submit"
-          className={`waitlist-submit ${status === 'success' ? 'success' : ''}`}
-          disabled={status === 'loading'}
+        <LuxuryButton
+          variant="primary"
+          className={status === 'success' ? 'success' : ''}
           id="waitlist-submit-button"
         >
-          {status === 'loading' ? 'Saving...' : status === 'success' ? <><Check size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} /> You're In</> : 'Get Early Access'}
-        </button>
+          {status === 'loading' ? 'Saving...' : status === 'success' ? <><Check size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} /> You're In</> : 'Join waitlist'}
+        </LuxuryButton>
       </form>
 
       {message && (

@@ -13,54 +13,64 @@ export const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="sidebar">
-      <Tooltip text="LifeOS Home" position="right">
-        <Link href="/dashboard" className="caps" style={{ marginBottom: 48, fontWeight: 800, color: 'white', display: 'flex', justifyContent: 'center' }}>
-          OS
+    <aside className="sidebar" style={{ borderRight: '1px solid rgba(255,255,255,0.05)', width: '64px' }}>
+      <Tooltip text="Home" position="right">
+        <Link href="/dashboard" style={{ 
+          marginBottom: 48, 
+          fontWeight: 700, 
+          color: 'white', 
+          display: 'flex', 
+          justifyContent: 'center', 
+          fontSize: '14px',
+          fontFamily: 'var(--font-serif)'
+        }}>
+          os.
         </Link>
       </Tooltip>
       
-      <Tooltip text="Dashboard (D)" position="right">
-        <Link href="/dashboard">
-          <Square className={`nav-icon ${pathname === '/dashboard' ? 'active' : ''}`} size={24} />
-        </Link>
-      </Tooltip>
-      
-      <Tooltip text="Timeline (T)" position="right">
-        <Link href="/timeline">
-          <Clock className={`nav-icon ${pathname === '/timeline' ? 'active' : ''}`} size={24} />
-        </Link>
-      </Tooltip>
-      
-      <Tooltip text="Goals (G)" position="right">
-        <Link href="/goals">
-          <Target className={`nav-icon ${pathname === '/goals' ? 'active' : ''}`} size={24} />
-        </Link>
-      </Tooltip>
-      
-      <Tooltip text="Habits (H)" position="right">
-        <Link href="/habits">
-          <RotateCw className={`nav-icon ${pathname === '/habits' ? 'active' : ''}`} size={24} />
-        </Link>
-      </Tooltip>
-      
-      <Tooltip text="Journal (J)" position="right">
-        <Link href="/journal">
-          <PenTool className={`nav-icon ${pathname === '/journal' ? 'active' : ''}`} size={24} />
-        </Link>
-      </Tooltip>
-      
-      <Tooltip text="Insights (A)" position="right">
-        <Link href="/analysis">
-          <BarChart3 className={`nav-icon ${pathname === '/analysis' ? 'active' : ''}`} size={24} />
-        </Link>
-      </Tooltip>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center' }}>
+        <Tooltip text="Dashboard" position="right">
+          <Link href="/dashboard" className={`nav-icon-container ${pathname === '/dashboard' ? 'active' : ''}`}>
+            <Square className={`nav-icon ${pathname === '/dashboard' ? 'active' : ''}`} size={20} />
+          </Link>
+        </Tooltip>
+        
+        <Tooltip text="Timeline" position="right">
+          <Link href="/timeline" className={`nav-icon-container ${pathname === '/timeline' ? 'active' : ''}`}>
+            <Clock className={`nav-icon ${pathname === '/timeline' ? 'active' : ''}`} size={20} />
+          </Link>
+        </Tooltip>
+        
+        <Tooltip text="Goals" position="right">
+          <Link href="/goals" className={`nav-icon-container ${pathname === '/goals' ? 'active' : ''}`}>
+            <Target className={`nav-icon ${pathname === '/goals' ? 'active' : ''}`} size={20} />
+          </Link>
+        </Tooltip>
+        
+        <Tooltip text="Habits" position="right">
+          <Link href="/habits" className={`nav-icon-container ${pathname === '/habits' ? 'active' : ''}`}>
+            <RotateCw className={`nav-icon ${pathname === '/habits' ? 'active' : ''}`} size={20} />
+          </Link>
+        </Tooltip>
+        
+        <Tooltip text="Journal" position="right">
+          <Link href="/journal" className={`nav-icon-container ${pathname === '/journal' ? 'active' : ''}`}>
+            <PenTool className={`nav-icon ${pathname === '/journal' ? 'active' : ''}`} size={20} />
+          </Link>
+        </Tooltip>
+        
+        <Tooltip text="Analysis" position="right">
+          <Link href="/analysis" className={`nav-icon-container ${pathname === '/analysis' ? 'active' : ''}`}>
+            <BarChart3 className={`nav-icon ${pathname === '/analysis' ? 'active' : ''}`} size={20} />
+          </Link>
+        </Tooltip>
+      </div>
       
       <div style={{ flex: 1 }} />
       
-      <Tooltip text="Settings (S)" position="right">
-        <Link href="/settings">
-          <Settings className="nav-icon" size={24} style={{ marginBottom: 0 }} />
+      <Tooltip text="Settings" position="right">
+        <Link href="/settings" className="nav-icon-container">
+          <Settings className="nav-icon" size={20} style={{ marginBottom: 0 }} />
         </Link>
       </Tooltip>
     </aside>

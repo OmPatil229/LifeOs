@@ -29,37 +29,37 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%', animation: 'fadeIn 0.5s ease-out' }}>
-      <div style={{ padding: '0 24px', marginBottom: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%', animation: 'fadeIn 1s ease-out' }}>
+      <div style={{ padding: '40px 0', marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div>
-          <h1 style={{ fontSize: '32px', fontWeight: 800, letterSpacing: '-0.02em' }}>
-            Dashboard
+          <h1 style={{ fontSize: '64px', fontWeight: 700, letterSpacing: '-0.04em', fontFamily: 'var(--font-serif)', textTransform: 'lowercase' }}>
+            {tabs.find(t => t.id === activeTimeLayer)?.label}
           </h1>
-          <p style={{ marginTop: '6px', color: 'var(--gray-500)', fontSize: '14px' }}>
+          <p style={{ marginTop: '8px', color: 'var(--gray-text)', fontSize: '15px', fontWeight: 500, letterSpacing: '0.02em' }}>
             {tabs.find(t => t.id === activeTimeLayer)?.tip}
           </p>
         </div>
 
-        <div style={{ display: 'flex', background: 'var(--surface-1)', padding: '4px', borderRadius: '10px', border: '1px solid var(--border)' }}>
+        <div style={{ display: 'flex', background: 'rgba(255,255,255,0.03)', padding: '6px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.05)' }}>
           {tabs.map((tab) => (
-            <Tooltip key={tab.id} text={tab.tip} position="bottom">
-              <button
-                onClick={() => setActiveTimeLayer(tab.id)}
-                style={{
-                  padding: '10px 20px',
-                  borderRadius: '8px',
-                  fontSize: '13px',
-                  fontWeight: 700,
-                  border: 'none',
-                  cursor: 'pointer',
-                  background: activeTimeLayer === tab.id ? 'var(--white)' : 'transparent',
-                  color: activeTimeLayer === tab.id ? 'var(--black)' : 'var(--gray-500)',
-                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
-              >
-                {tab.label}
-              </button>
-            </Tooltip>
+            <button
+              key={tab.id}
+              onClick={() => setActiveTimeLayer(tab.id)}
+              style={{
+                padding: '12px 28px',
+                borderRadius: '10px',
+                fontSize: '13px',
+                fontWeight: 700,
+                border: 'none',
+                cursor: 'pointer',
+                background: activeTimeLayer === tab.id ? 'var(--white)' : 'transparent',
+                color: activeTimeLayer === tab.id ? 'var(--black)' : 'var(--gray-text)',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                letterSpacing: '0.02em'
+              }}
+            >
+              {tab.label}
+            </button>
           ))}
         </div>
       </div>

@@ -1,47 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
-  /* Core monochrome palette — improved contrast */
+  /* Luxury Monochrome Palette */
   --black: #000000;
-  --surface-0: #050505;
-  --surface-1: #0A0A0A;
-  --surface-2: #111111;
-  --surface-3: #1A1A1A;
-  --border: #222222;
-  --border-active: #444444;
+  --surface-0: #000000;
+  --surface-1: #050505;
+  --surface-2: #0A0A0A;
+  --surface-3: #111111;
+  --border: rgba(255, 255, 255, 0.05);
+  --border-active: rgba(255, 255, 255, 0.2);
   
   --white: #FFFFFF;
-  --gray-100: #F5F5F5;
-  --gray-300: #A0A0A0;
-  --gray-500: #707070;
-  --gray-700: #404040;
-  --gray-900: #151515;
-
-  /* Functional - Pure monochrome */
-  --accent: #FFFFFF;
-  --accent-subtle: rgba(255, 255, 255, 0.05);
-  --accent-color: #FFFFFF;
-  --error: #FFFFFF;
-  --success: #FFFFFF;
-
-  /* Fonts */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --gray-text: #888888;
+  --gray-dim: #333333;
+  
+  /* Typography */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Spacing */
-  --space-1: 6px;
-  --space-2: 12px;
-  --space-3: 16px;
-  --space-4: 24px;
-  --space-5: 32px;
-  --space-6: 48px;
-  --space-7: 64px;
-  --space-8: 96px;
-
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  /* Radius - More sharpened for luxury feel */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 }
 
 * {
@@ -70,11 +51,12 @@ h1, h2, h3, h4, kbd {
 }
 
 .caps {
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.12em;
   font-size: 13px;
-  color: var(--gray-500);
-  font-weight: 800;
+  color: var(--gray-text);
+  font-weight: 700;
+  font-family: var(--font-serif);
 }
 
 a {
@@ -218,19 +200,35 @@ button {
 
 /* Icons */
 .nav-icon {
-  color: var(--gray-700);
-  margin-bottom: 40px;
-  cursor: pointer;
-  transition: all 300ms ease;
+  color: var(--gray-text);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-icon:hover {
+.nav-icon-container {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-icon-container:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-icon-container:hover .nav-icon {
   color: var(--white);
   transform: scale(1.1);
 }
 
-.nav-icon.active {
-  color: var(--white);
+.nav-icon-container.active {
+  background: var(--white);
+}
+
+.nav-icon-container.active .nav-icon {
+  color: var(--black);
 }
 
 .glow {

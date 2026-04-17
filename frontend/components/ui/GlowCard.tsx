@@ -49,7 +49,7 @@ export const GlowCard = ({
         className="glow-overlay"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.08), transparent 40%)`,
+          background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.04), transparent 40%)`,
         }}
       />
       
@@ -58,7 +58,7 @@ export const GlowCard = ({
         className="glow-border"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(200px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)`,
+          background: `radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.2), transparent 40%)`,
         }}
       />
 

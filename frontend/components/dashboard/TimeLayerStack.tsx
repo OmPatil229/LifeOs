@@ -83,15 +83,15 @@ export const TimeLayerStack = () => {
               scrollSnapAlign: 'center',
               minHeight: '600px',
               background: 'var(--surface-1)',
-              borderRadius: '24px',
+              borderRadius: 'var(--radius-lg)',
               border: isActive ? '1px solid var(--white)' : '1px solid var(--border)',
               boxShadow: isActive 
-                ? '0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(255,255,255,0.02)' 
-                : '0 10px 30px rgba(0,0,0,0.3)',
-              padding: '40px',
-              transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-              opacity: isActive ? 1 : 0.4,
-              transform: isActive ? 'scale(1)' : 'scale(0.95)',
+                ? '0 60px 100px -20px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.02)' 
+                : 'none',
+              padding: '60px',
+              transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+              opacity: isActive ? 1 : 0.2,
+              transform: isActive ? 'scale(1)' : 'scale(0.98)',
               overflow: 'hidden'
             }}
           >
